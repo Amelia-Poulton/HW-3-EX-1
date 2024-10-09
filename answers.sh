@@ -8,7 +8,7 @@ UPDATE students SET points = points + 1 WHERE name = 'Basma';
 UPDATE students SET points = points - 1 WHERE name = 'Alex';
 
 CREATE TABLE graduates(
-    ID INTEGER  PRIMARY KEY AUTOINCREMENT,
+    ID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     Name  TEXT NOT NULL UNIQUE,
     Age INTEGER,
 	Gender TEXT,
@@ -18,11 +18,14 @@ CREATE TABLE graduates(
 
 INSERT INTO graduates(Name, Age, Gender, Points) SELECT Name, Age, Gender, Points FROM Students WHERE Students.Name='Layal';
 UPDATE graduates SET Graduation='08-09-2018' WHERE Name='Layal';
-DELETE FROM graduates WHERE Name='Layal';
+DELETE FROM students WHERE Name='Layal';
 
-SELECT employees.name, employees.Company, companies.date FROM employees Inner join companies ON employees.Company=companies.name;
-SELECT employees.name FROM employees Inner join companies ON employees.Company=companies.name and companies.Date < 2000;
-SELECT companies.name FROM companies Inner join employees ON employees.Company=companies.name and employees.Role='Graphic Designer';
+SELECT employees.name, employees.Company, companies.date 
+FROM employees Inner join companies ON employees.Company=companies.name;
+SELECT employees.name 
+FROM employees Inner join companies ON employees.Company=companies.name and companies.Date < 2000;
+SELECT companies.name 
+FROM companies Inner join employees ON employees.Company=companies.name and employees.Role='Graphic Designer';
 
 select name from students where points=(SELECT MAX(points) from students);
 select AVG(points) from students;
