@@ -27,8 +27,8 @@ FROM employees Inner join companies ON employees.Company=companies.name and comp
 SELECT companies.name 
 FROM companies Inner join employees ON employees.Company=companies.name and employees.Role='Graphic Designer';
 
-select name from students where points=(SELECT MAX(points) from students);
-select AVG(points) from students;
-select COUNT(Name) from students where points=500;
-select Name from students WHERE Name GLOB '*s*';
-select name from students ORDER BY points DESC;
+SELECT name from students where points=(SELECT MAX(points) from students);
+SELECT AVG(points) from students;
+SELECT COUNT(Name) from students where points=500;
+SELECT Name from students WHERE Name GLOB '*s*';
+SELECT name from students ORDER BY points DESC;
